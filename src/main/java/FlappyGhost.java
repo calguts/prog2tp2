@@ -8,9 +8,13 @@ import java.io.IOException;
 public class FlappyGhost extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(FlappyGhost.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(FlappyGhost.class.getResource("FlappyGhost-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
+        stage.setTitle("Flappy Ghost par Cal Gutiérrez!");
+        stage.setMinHeight(440);
+        stage.setMaxHeight(440);
+        stage.setMinWidth(640);
+        stage.setMaxWidth(640);
         stage.setScene(scene);
         stage.show();
     }
