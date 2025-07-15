@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d87d4b74-2d82-4712-9667-d73bf0d816dc" name="Changes" comment="unmaven it all">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-    </list>
+    <list default="true" id="d87d4b74-2d82-4712-9667-d73bf0d816dc" name="Changes" comment="unmaven it all" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -102,7 +99,7 @@
       <workItem from="1752429178927" duration="1688000" />
       <workItem from="1752591388287" duration="9575000" />
       <workItem from="1752604759716" duration="39000" />
-      <workItem from="1752604933205" duration="1376000" />
+      <workItem from="1752604933205" duration="1510000" />
     </task>
     <task id="LOCAL-00001" summary="Tp2   nom de la classe  + par default dans le package">
       <option name="closed" value="true" />
@@ -136,7 +133,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752604675648</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="unmaven it all">
+      <option name="closed" value="true" />
+      <created>1752606443807</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1752606443807</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
