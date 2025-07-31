@@ -29,8 +29,14 @@ public class GameOn {
     }
 
     public static void checkCollision(){
-        /*if distance de gjhost à obstracle est plus petit que la somme de leurs rayons
-        gameover = true*/
+        for (Obstacle obstacle : mesObstacles.getMesObstacles()) {
+            double distance = Math.sqrt(Math.pow(myGhost.getPosX() - obstacle.getX(), 2) +
+                Math.pow(myGhost.getPosY() - obstacle.getY(), 2));
+
+            if (distance <= myGhost.getRadius() + obstacle.getRadius()) {
+                isGameOver = true;
+            }
+        }
     }
 
     public static void checkIfCreateObstacle(){
