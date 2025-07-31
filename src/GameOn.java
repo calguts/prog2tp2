@@ -29,7 +29,8 @@ public class GameOn {
     }
 
     public static void checkCollision(){
-
+        /*if distance de gjhost à obstracle est plus petit que la somme de leurs rayons
+        gameover = true*/
     }
 
     public static void checkIfCreateObstacle(){

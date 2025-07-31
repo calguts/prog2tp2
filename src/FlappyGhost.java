@@ -15,7 +15,7 @@ public class FlappyGhost extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(FlappyGhost.class.getResource("FlappyGhost-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Flappy Ghost par Cal Gutiérrez!");
+        stage.setTitle("Flappy Ghost par Cal Gutiérrez et Thomas Ring!");
 
         int sWidth = 640;
         int sHeight = 470;
@@ -48,6 +48,9 @@ public class FlappyGhost extends Application {
         scene.setOnMouseClicked((event) -> {
             myCanvas.requestFocus();
         });
+
+        // Met le fantôme comme icône de barre de tâches
+        stage.getIcons().add(imageGhost);
     }
 
     public static void main(String[] args) {
