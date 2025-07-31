@@ -2,9 +2,13 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class FlappyGhost extends Application {
     @Override
@@ -12,8 +16,8 @@ public class FlappyGhost extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(FlappyGhost.class.getResource("FlappyGhost-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Flappy Ghost par Cal Gutiérrez!");
-        stage.setMinHeight(440);
-        stage.setMaxHeight(440);
+        stage.setMinHeight(470);
+        stage.setMaxHeight(470);
         stage.setMinWidth(640);
         stage.setMaxWidth(640);
         stage.setScene(scene);
@@ -21,15 +25,20 @@ public class FlappyGhost extends Application {
 
         /* Get controller to access canvas for focus */
         FlappyGhostController controller = fxmlLoader.getController();
+        Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/fichiersFH/bg.png")));
+
+        Canvas myCanvas =  controller.getCanvas();
+        GraphicsContext gc = myCanvas.getGraphicsContext2D();
+
+        gc.clearRect(0, 0, myCanvas.getWidth(), myCanvas.getHeight());
+        gc.drawImage(image,  0, 0,  640, 400, 0, 0,640, 400);
 
         /* Après l’exécution de la fonction, le focus va automatiquement au canvas */
-        Platform.runLater(() -> {
-            controller.gameCanvas.requestFocus();
-        });
+        Platform.runLater(myCanvas::requestFocus);
 
         /* Lorsqu’on clique ailleurs sur la scène, le focus retourne sur le canvas */
         scene.setOnMouseClicked((event) -> {
-            controller.gameCanvas.requestFocus();
+            myCanvas.requestFocus();
         });
     }
 
