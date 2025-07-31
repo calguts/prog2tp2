@@ -1,24 +1,22 @@
+import java.util.Random;
+
 public class ObstacleQuantique extends Obstacle {
-    int xPos;
-    int yPos;
+    private double lastTeleportTime = 0;
+    private final double teleportInterval = 0.2; // seconds
+    private final Random random = new Random();
 
-    public ObstacleQuantique() {
-
+    public ObstacleQuantique(double x, double y, double radius, String imagePath) {
+        super(x, y, radius, imagePath);
     }
 
-    private void nouvellePos(){
-
-    }
-
-    private void bougerPos(int ghostSpeed){
-
-    }
-
-    public int getxPos() {
-        return xPos;
-    }
-
-    public int getyPos() {
-        return yPos;
+    @Override
+    public void updateMovement(double dt) {
+        lastTeleportTime += dt;
+        if (lastTeleportTime >= teleportInterval) {
+            lastTeleportTime = 0;
+            // Teleport randomly between -30 and 30 in both x and y
+            xPos += (random.nextDouble() * 60) - 30;
+            yPos += (random.nextDouble() * 60) - 30;
+        }
     }
 }

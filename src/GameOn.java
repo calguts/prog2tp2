@@ -6,11 +6,14 @@ public class GameOn {
     boolean isGamePaused = false;
     int score = 0;
     int speed;
+    static Ghost myGhost;
+    ObstaclesListe mesObstacles;
 
 
 
     public GameOn() {
-
+        myGhost = new Ghost();
+        mesObstacles = new ObstaclesListe();
     }
 
 
@@ -20,7 +23,8 @@ public class GameOn {
     }
 
     public static void updateGameState(Double dt) {
-
+        myGhost.MoveGhost(dt);
+        checkCollision();
     }
 
     public static void gameRestart() {
@@ -39,7 +43,7 @@ public class GameOn {
         return speed;
     }
 
-    public int getScore() {
+    public static int getScore() {
         return score;
     }
 

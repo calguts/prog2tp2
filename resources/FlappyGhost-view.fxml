@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="640.0" scaleShape="false" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FlappyGhostController">
-   <Canvas fx:id="gameCanvas" height="400.0" onKeyPressed="#onKeyDown" width="640.0" VBox.vgrow="NEVER">
+   <Canvas fx:id="gameCanvas" height="400.0" onKeyPressed="#onKeyDown" onKeyReleased="#onKeyUp" width="640.0" VBox.vgrow="NEVER">
    </Canvas>
     <HBox pickOnBounds="false" prefHeight="100.0" prefWidth="200.0" scaleShape="false" spacing="5.0">
         <padding>
