@@ -1,5 +1,9 @@
 public class Ghost {
 
+    double gravity;
+    int posX;
+    int posY;
+
     public Ghost() {
 
     }
@@ -10,5 +14,13 @@ public class Ghost {
 
     private void MoveGhostDown() {
 
+    }
+
+    public int getPosX() {
+        return posX;
+    }
+
+    public int getPosY() {
+        return posY;
     }
 }

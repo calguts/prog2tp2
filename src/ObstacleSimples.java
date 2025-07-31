@@ -1,10 +1,12 @@
 public class ObstacleSimples  extends Obstacle {
+    int xPos;
+    int yPos;
 
     public ObstacleSimples() {
 
     }
 
-    private void calcPos(int ghostSpeed){
+    private void bouger(int ghostSpeed){
 
     }
 }

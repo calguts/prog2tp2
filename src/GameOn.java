@@ -8,6 +8,7 @@ public class GameOn {
     int speed;
 
 
+
     public GameOn() {
 
     }
@@ -23,6 +24,14 @@ public class GameOn {
     }
 
     public static void gameRestart() {
+
+    }
+
+    public static void checkCollision(){
+
+    }
+
+    public static void checkIfCreateObstacle(){
 
     }
 
