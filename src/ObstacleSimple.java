@@ -3,7 +3,6 @@ public class ObstacleSimple  extends Obstacle {
         super(x, y, radius, imagePath);
     }
 
-    // No vertical movement for simple obstacles
     @Override
     public void updateMovement(double dt) {
         // no vertical movement

@@ -14,7 +14,7 @@ public class ObstacleQuantique extends Obstacle {
         lastTeleportTime += dt;
         if (lastTeleportTime >= teleportInterval) {
             lastTeleportTime = 0;
-            // Teleport randomly between -30 and 30 in both x and y
+
             xPos += (random.nextDouble() * 60) - 30;
             yPos += (random.nextDouble() * 60) - 30;
         }

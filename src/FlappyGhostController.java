@@ -71,7 +71,6 @@ public class FlappyGhostController {
             //
         }
 
-        // Draw obstacles
         for (Obstacle obs : ObstaclesListe.getMesObstacles()) {
             if (isDebugMode) {
                //
@@ -80,8 +79,8 @@ public class FlappyGhostController {
             }
         }
 
-        // Update score label
-        scoreLabel.setText(String.format("%02d", GameOn.getScore()));
+        //scoreLabel.setText(String.format("%02d", GameOn.getScore()));
+        //faut passer l'objet jeu en reference quelque part
 
     }
 

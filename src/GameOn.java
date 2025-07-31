@@ -9,13 +9,10 @@ public class GameOn {
     static Ghost myGhost;
     ObstaclesListe mesObstacles;
 
-
-
     public GameOn() {
         myGhost = new Ghost();
         mesObstacles = new ObstaclesListe();
     }
-
 
     public static void gameStart() {
 
@@ -23,7 +20,7 @@ public class GameOn {
     }
 
     public static void updateGameState(Double dt) {
-        myGhost.MoveGhost(dt);
+        myGhost.update(dt);
         checkCollision();
     }
 
@@ -43,7 +40,7 @@ public class GameOn {
         return speed;
     }
 
-    public static int getScore() {
+    public int getScore() {
         return score;
     }
 

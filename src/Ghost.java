@@ -32,26 +32,22 @@ public class Ghost {
 
     public void update(double dt) {
         if (goingUp) {
-            // If going up, apply jump force directly
             verticalSpeed = JUMP_SPEED;
         } else {
-            // If not going up, apply gravity
             verticalSpeed += gravity * dt;
 
-            // Clamp downward speed
             if (verticalSpeed > MAX_VERTICAL_SPEED) {
                 verticalSpeed = MAX_VERTICAL_SPEED;
             }
         }
 
-        // Clamp upward speed too
         if (verticalSpeed < -MAX_VERTICAL_SPEED) {
             verticalSpeed = -MAX_VERTICAL_SPEED;
         }
 
         posY += verticalSpeed * dt;
 
-        // Bounce off the top
+
         if (posY <= 0) {
             posY = 0;
             verticalSpeed = Math.abs(verticalSpeed);

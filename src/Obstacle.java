@@ -15,7 +15,6 @@ public class Obstacle {
         ObstaclesListe.addObstacle(this);
     }
 
-    // All obstacles move left at ghost speed (simulate ghost moving right)
     public void update(double dt, double ghostSpeed) {
         xPos -= ghostSpeed * dt;
     }
@@ -25,10 +24,8 @@ public class Obstacle {
     public double getRadius() { return radius; }
     public String getImagePath() { return imagePath; }
 
-    // Abstract method to handle additional movement per obstacle type
     public void updateMovement(double dt) {}
 
-    // Call this every frame to update position and movement
     public void tick(double dt, double ghostSpeed) {
         update(dt, ghostSpeed);    // horizontal movement
         updateMovement(dt);        // vertical or teleport movement
