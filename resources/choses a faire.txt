@@ -1,0 +1,53 @@
+
+fenetre de jeu:
+ajouter icone
+
+
+creation objet:
+choisir type objet
+choisir image
+fix une vitesse
+
+
+if game over
+clear les stats du jeu
+tuer tout les obstacles
+reset score
+
+
+loop du jeu
+gravite du fantome
+si pas mode debug
+	check si pas de collision
+		si oui  game over
+check si depasse objet
+	si oui augmenter points
+		tenir conte interne du nombre
+bouger obstacles selon leurs proprieties
+	deplacer aussi selon vitesse du ghost
+tuer obstacles qui sont offscreen
+creation de nouveaux obstacles
+
+
+render
+bouger le background
+boucler le bg au besoin  (classe background?)
+si mode debug  display area de contact
+generer tout les obstacles
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

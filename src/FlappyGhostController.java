@@ -43,6 +43,7 @@ public class FlappyGhostController {
                     render();
                 }
                 lastUpdate = now;
+
             }
         };
 
