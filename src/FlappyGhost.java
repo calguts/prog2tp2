@@ -10,7 +10,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-
 /**
  * FlappyGhost.java par Cal Gutierrez et Thomas Ring
  * Programmation 2
@@ -19,15 +18,12 @@ import java.util.Objects;
  * pas d’objectif autre que d’avancer le plus longtemps possible dans le niveau sans toucher
  * d’obstacle.
  */
-
 public class FlappyGhost extends Application {
-
     /**
      * Launch l'appli
      * @param stage
      * @throws IOException
      */
-
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(FlappyGhost.class.getResource("FlappyGhost-view.fxml"));
@@ -68,8 +64,8 @@ public class FlappyGhost extends Application {
 
         // Met le fantôme comme icône de barre de tâches
         stage.getIcons().add(imageGhost);
-
     }
+
     /**
      * Main: fait juste lanccer l'appli javafx
      * @param args  Imput du joueur
