@@ -122,9 +122,13 @@ public class FlappyGhostController {
                 break;
 
             case UP:
+                pauseBtn.setText("upupup");
+                break;
             case W:
+                pauseBtn.setText("wwwww");
+                break;
             case SPACE:
-                Ghost.setGoingUp(true);
+                partie.myGhost.jump();
                 break;
 
             default:
@@ -137,8 +141,6 @@ public class FlappyGhostController {
             case UP:
             case W:
             case SPACE:
-                Ghost.setGoingUp(false);
-                break;
         }
     }
 

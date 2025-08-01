@@ -19,7 +19,6 @@ public class Ghost {
     private double posY;
     private static final double RADIUS = 30.0;
     private int obstaclesPassed = 0;
-    private boolean goingUp = false;
 
     private final Image image = new Image(Objects.requireNonNull(
             getClass().getResourceAsStream("/fichiersFH/ghost.png")
@@ -31,14 +30,10 @@ public class Ghost {
     }
 
     public void update(double dt) {
-        if (goingUp) {
-            verticalSpeed = JUMP_SPEED;
-        } else {
-            verticalSpeed += gravity * dt;
+        verticalSpeed += gravity * dt;
 
-            if (verticalSpeed > MAX_VERTICAL_SPEED) {
-                verticalSpeed = MAX_VERTICAL_SPEED;
-            }
+        if (verticalSpeed > MAX_VERTICAL_SPEED) {
+            verticalSpeed = MAX_VERTICAL_SPEED;
         }
 
         if (verticalSpeed < -MAX_VERTICAL_SPEED) {
@@ -69,12 +64,8 @@ public class Ghost {
         }
     }
 
-    public static void setGoingUp(boolean goingUp) {
-        goingUp = goingUp;
-    }
-
-    public boolean isGoingUp() {
-        return goingUp;
+    public  void jump() {
+        verticalSpeed = JUMP_SPEED;
     }
 
     public double getPosX() {
