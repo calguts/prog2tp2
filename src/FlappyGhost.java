@@ -64,7 +64,6 @@ public class FlappyGhost extends Application {
 
         // Met le fantôme comme icône de barre de tâches
         stage.getIcons().add(imageGhost);
-
     }
 
     /**
