@@ -103,7 +103,6 @@ public class Ghost {
     }
 
     /**
-     *
      * @return radius
      */
     public double getRadius() {
