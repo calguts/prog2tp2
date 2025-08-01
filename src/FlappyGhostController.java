@@ -5,9 +5,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+
+import java.util.Objects;
 
 import static com.sun.scenario.effect.impl.prism.PrEffectHelper.render;
 
@@ -27,9 +30,20 @@ public class FlappyGhostController {
         return gameCanvas;
     }
 
+    Image imageBg = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/fichiersFH/bg.png")));
+    int sWidth = 640;
+    int sHeight = 470;
+    int cHeight = 400;
+
+    Image imageGhost = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/fichiersFH/ghost.png")));
+
+    GameOn partie = new GameOn();
+
+
     @FXML
     public void initialize() {
         GraphicsContext gc = gameCanvas.getGraphicsContext2D();
+
 
         isDebugMode = false;
         isPaused = false;
@@ -46,7 +60,7 @@ public class FlappyGhostController {
 
                 if (lastUpdate > 0) {
                     double dt = (now - lastUpdate) / 1e9; // convert nanoseconds to seconds
-                    GameOn.updateGameState(dt);           // update your game logic with dt
+                    partie.updateGameState(dt);           // update your game logic with dt
                     render();                            // draw everything
                 }
                 lastUpdate = now;
@@ -62,8 +76,8 @@ public class FlappyGhostController {
         gc.clearRect(0, 0, gameCanvas.getWidth(), gameCanvas.getHeight());
 
 
-
-        // Draw ghost
+        partie.bg.draw(gc);
+        gc.drawImage(imageGhost, partie.myGhost.getPosX(), partie.myGhost.getPosY());
 
         if (isDebugMode) {
             //

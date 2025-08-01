@@ -59,8 +59,6 @@ public class Ghost {
             verticalSpeed = -Math.abs(verticalSpeed);
         }
 
-        // Move horizontally
-        posX += horizontalSpeed * dt;
     }
 
     public void obstaclePassed() {
@@ -93,6 +91,10 @@ public class Ghost {
 
     public double getRadius() {
         return RADIUS;
+    }
+
+    public double getHorizontalSpeed() {
+        return horizontalSpeed;
     }
 }
 

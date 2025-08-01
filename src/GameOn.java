@@ -2,16 +2,18 @@ import java.util.ArrayList;
 
 
 public class GameOn {
-    boolean isGameOver = false;
+    static boolean isGameOver = false;
     boolean isGamePaused = false;
     int score = 0;
     int speed;
-    static Ghost myGhost;
+    Ghost myGhost;
     ObstaclesListe mesObstacles;
+    ScrollingBackground bg;
 
     public GameOn() {
         myGhost = new Ghost();
         mesObstacles = new ObstaclesListe();
+        bg = new ScrollingBackground();
     }
 
     public static void gameStart() {
@@ -19,8 +21,9 @@ public class GameOn {
 
     }
 
-    public static void updateGameState(Double dt) {
+    public void updateGameState(Double dt) {
         myGhost.update(dt);
+        bg.update(dt, myGhost.getHorizontalSpeed());
         checkCollision();
     }
 
@@ -28,7 +31,7 @@ public class GameOn {
 
     }
 
-    public static void checkCollision(){
+    public void checkCollision(){
         for (Obstacle obstacle : mesObstacles.getMesObstacles()) {
             double distance = Math.sqrt(Math.pow(myGhost.getPosX() - obstacle.getX(), 2) +
                 Math.pow(myGhost.getPosY() - obstacle.getY(), 2));

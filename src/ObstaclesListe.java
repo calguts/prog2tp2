@@ -3,7 +3,7 @@
 
     /**
      * Classe représentant la liste globale des obstacles de l'application.
-     * Elle permet de centraliser et gérer lesobjets ajoutées ou supprimées.
+     * Elle permet de centraliser et gérer les objets ajoutées ou supprimées.
      *
      */
     public class ObstaclesListe {
