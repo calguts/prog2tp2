@@ -1,8 +1,11 @@
+import javafx.application.Platform;
+
 import java.util.ArrayList;
+import java.util.Random;
 
 
 public class GameOn {
-    static boolean isGameOver = false;
+    boolean isGameOver = false;
     boolean isGamePaused = false;
     int score = 0;
     int speed;
@@ -13,6 +16,7 @@ public class GameOn {
     public GameOn() {
         myGhost = new Ghost();
         mesObstacles = new ObstaclesListe();
+        mesObstacles.addObstacle();
         bg = new ScrollingBackground();
     }
 
@@ -22,9 +26,25 @@ public class GameOn {
     }
 
     public void updateGameState(Double dt) {
-        myGhost.update(dt);
+        // Met à jour l'arrière-plan, le ghost puis les obstacles
         bg.update(dt, myGhost.getHorizontalSpeed());
+        myGhost.update(dt);
+        for (Obstacle obstacle : mesObstacles.getMesObstacles()) {
+            obstacle.tick(dt, myGhost.getHorizontalSpeed());
+        }
+
+        // Se débarasse des obstacles sortis de l'écran et en ajoutent des nouveaux
+        if (mesObstacles.getMesObstacles().get(0).getX() < 0) {
+            incrementScore();
+            mesObstacles.removeObstacle(0);
+            mesObstacles.addObstacle();
+            myGhost.obstaclePassed();
+        }
+
+
+
         checkCollision();
+
     }
 
     public static void gameRestart() {
@@ -37,7 +57,7 @@ public class GameOn {
                 Math.pow(myGhost.getPosY() - obstacle.getY(), 2));
 
             if (distance <= myGhost.getRadius() + obstacle.getRadius()) {
-                isGameOver = true;
+                Platform.exit();
             }
         }
     }
@@ -54,8 +74,9 @@ public class GameOn {
         return score;
     }
 
-
-
+    public void incrementScore() {
+        score += 5;
+    }
 
 
 }

@@ -12,7 +12,6 @@ public class Obstacle {
         this.yPos = y;
         this.radius = radius;
         this.imagePath = imagePath;
-        ObstaclesListe.addObstacle(this);
     }
 
     public void update(double dt, double ghostSpeed) {

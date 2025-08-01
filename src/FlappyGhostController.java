@@ -30,11 +30,6 @@ public class FlappyGhostController {
         return gameCanvas;
     }
 
-    Image imageBg = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/fichiersFH/bg.png")));
-    int sWidth = 640;
-    int sHeight = 470;
-    int cHeight = 400;
-
     Image imageGhost = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/fichiersFH/ghost.png")));
 
     GameOn partie = new GameOn();
@@ -76,8 +71,17 @@ public class FlappyGhostController {
         gc.clearRect(0, 0, gameCanvas.getWidth(), gameCanvas.getHeight());
 
 
+        //Dessine l'arrière-plan, le ghost, puis l'obstacle
         partie.bg.draw(gc);
         gc.drawImage(imageGhost, partie.myGhost.getPosX(), partie.myGhost.getPosY());
+
+        for (Obstacle obstacle : partie.mesObstacles.getMesObstacles()) {
+            Image imageObstacle = new Image(Objects.requireNonNull(getClass().getResourceAsStream(obstacle.getImagePath())));
+            gc.drawImage(imageObstacle, obstacle.getX(), obstacle.getY());
+        }
+
+        //scoreLabel
+
 
         if (isDebugMode) {
             //
@@ -85,7 +89,7 @@ public class FlappyGhostController {
             //
         }
 
-        for (Obstacle obs : ObstaclesListe.getMesObstacles()) {
+        for (Obstacle obs : partie.mesObstacles.getMesObstacles()) {
             if (isDebugMode) {
                //
             } else {
@@ -93,8 +97,7 @@ public class FlappyGhostController {
             }
         }
 
-        //scoreLabel.setText(String.format("%02d", GameOn.getScore()));
-        //faut passer l'objet jeu en reference quelque part
+        scoreLabel.setText(String.format("%02d", partie.getScore()));
 
     }
 
@@ -117,15 +120,12 @@ public class FlappyGhostController {
 
     public void onKeyDown(KeyEvent keyEvent) {
         switch (keyEvent.getCode()) {
-            case ESCAPE:
-                Platform.exit();
+             case ESCAPE:
+                 Platform.exit();
                 break;
 
-            case UP:
-                pauseBtn.setText("upupup");
-                break;
-            case W:
-                pauseBtn.setText("wwwww");
+            case A, S, D, F, H, J, K, L:
+                partie.myGhost.jump();
                 break;
             case SPACE:
                 partie.myGhost.jump();
