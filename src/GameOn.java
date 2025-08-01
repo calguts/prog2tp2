@@ -1,8 +1,11 @@
 import javafx.application.Platform;
-
 import java.util.ArrayList;
 import java.util.Random;
 
+
+/**
+ * Gere la logique principale du jeu
+ */
 
 public class GameOn {
     boolean isGameOver = false;
@@ -12,6 +15,10 @@ public class GameOn {
     Ghost myGhost;
     ObstaclesListe mesObstacles;
     ScrollingBackground bg;
+
+    /**
+     * Constructeur du jeu
+     */
 
     public GameOn() {
         myGhost = new Ghost();

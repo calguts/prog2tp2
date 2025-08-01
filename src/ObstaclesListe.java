@@ -11,6 +11,12 @@
 
         private ArrayList<Obstacle> mesObstacles = new ArrayList<>();
 
+
+        /**
+         * Ajoute obstacle à la liste
+         * Un nombre entre 0 et 1 généré aléatoirement détermine si
+         * l'obstacle sera quantique, simple ou sinus.
+         */
         public void addObstacle() {
             double type = new Random().nextDouble();
             if (type < 1.0/3) {
@@ -25,15 +31,19 @@
             }
         }
 
+        /**
+         * Retire un obstacle de la liste de l'index désigné.
+         * @param index
+         */
         public void removeObstacle(int index) {
             mesObstacles.remove(index);
         }
 
+        /**
+         * Retourne la liste
+         * @return mesObstacles
+         */
         public ArrayList<Obstacle> getMesObstacles() {
             return mesObstacles;
-        }
-
-        public void reset() {
-            mesObstacles.clear(); // Optional reset function
         }
     }

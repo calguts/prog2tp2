@@ -10,7 +10,24 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
+
+/**
+ * FlappyGhost.java par Cal Gutierrez et Thomas Ring
+ * Programmation 2
+ * 31 juillet 2025
+ * Le joueur incarne un fantôme qui se promène dans un niveau rempli d’obstacles. Il n’y a
+ * pas d’objectif autre que d’avancer le plus longtemps possible dans le niveau sans toucher
+ * d’obstacle.
+ */
+
 public class FlappyGhost extends Application {
+
+    /**
+     * Launch l'appli
+     * @param stage
+     * @throws IOException
+     */
+
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(FlappyGhost.class.getResource("FlappyGhost-view.fxml"));
@@ -26,7 +43,7 @@ public class FlappyGhost extends Application {
         stage.setScene(scene);
         stage.show();
 
-        /* Get controller to access canvas for focus */
+        /* On a besoin du canvas pour lui donner le focus */
         FlappyGhostController controller = fxmlLoader.getController();
         Image imageBg = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/fichiersFH/bg.png")));
         int cHeight = 400;
@@ -53,7 +70,10 @@ public class FlappyGhost extends Application {
         stage.getIcons().add(imageGhost);
 
     }
-
+    /**
+     * Main: fait juste lanccer l'appli javafx
+     * @param args  Imput du joueur
+     */
     public static void main(String[] args) {
         launch();
     }
