@@ -54,14 +54,14 @@ public class FlappyGhostController {
             @Override
             public void handle(long now) {
                 if (isPaused) {
-                    lastUpdate = now; // reset lastUpdate so dt won't be huge after pause
+                    lastUpdate = now;
                     return;
                 }
 
                 if (lastUpdate > 0) {
-                    double dt = (now - lastUpdate) / 1e9; // convert nanoseconds to seconds
-                    partie.updateGameState(dt);           // update your game logic with dt
-                    render();                            // draw everything
+                    double dt = (now - lastUpdate) / 1e9; //nanoseconds to seconds
+                    partie.updateGameState(dt);
+                    render();
                 }
                 lastUpdate = now;
 
@@ -136,6 +136,10 @@ public class FlappyGhostController {
         }
     }
 
+    /**
+     * Quand le joueur relache une touche
+     * @param keyEvent
+     */
     public void onKeyUp(KeyEvent keyEvent) {
         switch (keyEvent.getCode()) {
             case UP:
@@ -144,6 +148,10 @@ public class FlappyGhostController {
         }
     }
 
+    /**
+     * Si le joueur coche ou decoche la case debug
+     * @param actionEvent
+     */
     public void onDebugMode(ActionEvent actionEvent) {
         isDebugMode = !isDebugMode;
     }

@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 
-
+/**
+ * Gere la logique principale du jeu
+ */
 public class GameOn {
     static boolean isGameOver = false;
     boolean isGamePaused = false;
@@ -10,6 +12,9 @@ public class GameOn {
     ObstaclesListe mesObstacles;
     ScrollingBackground bg;
 
+    /**
+     * Constructeur du jeu
+     */
     public GameOn() {
         myGhost = new Ghost();
         mesObstacles = new ObstaclesListe();

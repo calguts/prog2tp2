@@ -2,6 +2,9 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import java.util.Objects;
 
+/**
+ * Gere le background
+ */
 public class ScrollingBackground {
     private final Image image;
     private final double width = 640;

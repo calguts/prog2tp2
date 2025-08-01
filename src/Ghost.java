@@ -2,6 +2,9 @@ import javafx.scene.image.Image;
 
 import java.util.Objects;
 
+/**
+ * Classe qui gere le phantome
+ */
 public class Ghost {
 
     private static final double INITIAL_HORIZONTAL_SPEED = 120;
@@ -24,11 +27,18 @@ public class Ghost {
             getClass().getResourceAsStream("/fichiersFH/ghost.png")
     ));
 
+    /**
+     * Classe constructeur
+     */
     public Ghost() {
         this.posX = 640.0 / 2 - image.getWidth() / 2;
         this.posY = 400.0 / 2 - image.getHeight() / 2;
     }
 
+    /**
+     * Met a jourla position verticale du phantome
+     * @param dt
+     */
     public void update(double dt) {
         verticalSpeed += gravity * dt;
 
@@ -42,20 +52,19 @@ public class Ghost {
 
         posY += verticalSpeed * dt;
 
-
         if (posY <= 0) {
             posY = 0;
             verticalSpeed = Math.abs(verticalSpeed);
         }
-
-        // Bounce off the bottom
         else if (posY >= 400 - image.getHeight()) {
             posY = 400 - image.getHeight();
             verticalSpeed = -Math.abs(verticalSpeed);
         }
-
     }
 
+    /**
+     * augmente sa vitesse et sa gravite
+     */
     public void obstaclePassed() {
         obstaclesPassed++;
         if (obstaclesPassed % 2 == 0) {
@@ -64,26 +73,46 @@ public class Ghost {
         }
     }
 
+    /**
+     * Fait sauter le phantome
+     */
     public  void jump() {
         verticalSpeed = JUMP_SPEED;
     }
 
+    /**
+     * devrait rester fixe
+     * @return posX
+     */
     public double getPosX() {
         return posX;
     }
 
+    /**
+     * @return posY
+     */
     public double getPosY() {
         return posY;
     }
 
+    /**
+     * @return Image
+     */
     public Image getImage() {
         return image;
     }
 
+    /**
+     *
+     * @return radius
+     */
     public double getRadius() {
         return RADIUS;
     }
 
+    /**
+     * @return horizontalSpeed
+     */
     public double getHorizontalSpeed() {
         return horizontalSpeed;
     }
